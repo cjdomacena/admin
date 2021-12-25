@@ -5,8 +5,8 @@ import { Signup } from "./pages/auth/Signup";
 function App() {
   return (
     <div className="App">
-        {/* <Header/> */}
-        <Signup/>
+        <Header/>
+        {/* <Signup/> */}
     </div>
   );
 }

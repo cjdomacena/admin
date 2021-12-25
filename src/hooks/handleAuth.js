@@ -4,7 +4,7 @@ import {supabase} from '../client/supabaseClient'
 export const handleSignupWithEmailPassword = async (email, password) => {
     const res = {message: '', status: 0};
     try {
-        const { user, session, error } = await supabase.auth.signUp({
+        const { error } = await supabase.auth.signUp({
             email: email,
             password: password
         })
