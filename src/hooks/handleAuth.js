@@ -22,3 +22,28 @@ export const handleSignupWithEmailPassword = async (email, password) => {
         return res;
     }
 }
+
+export const handleSigninWithEmailPassword = async (email, password) => {
+    const res = {message: '', status: 0};
+    try {
+        const { user,error } = await supabase.auth.signIn({
+            email: email,
+            password: password
+        })
+
+        if (error){
+            throw error
+        }
+        res.status = 200;
+        return res;
+    } catch(error) {
+        res.message = error.error_description || error.message;
+        res.status = 500;
+        return res;
+    }
+}
+
+export const handleLogout = async () => {
+    supabase.auth.signOut();
+  
+}
